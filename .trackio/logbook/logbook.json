@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "title": "Repro - Causal Modeling of Evolutionary Selection (arXiv 2606.05689)",
+  "emoji": "🎯",
+  "space_id": null,
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-mOcTXKawFY"
+  ],
+  "updated_at": "2026-07-22T03:55:55+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - Causal Modeling of Evolutionary Selection (arXiv 2606.05689)",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "overview",
+        "title": "Overview",
+        "file": "pages/overview/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3-theorem-1",
+        "title": "Claim 3 — Theorem 1",
+        "file": "pages/claim-3-theorem-1/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-2-induced-deps",
+        "title": "Claim 2 — Induced deps",
+        "file": "pages/claim-2-induced-deps/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-4-pc-soundness",
+        "title": "Claim 4 — PC soundness",
+        "file": "pages/claim-4-pc-soundness/page.md",
+        "children": []
+      },
+      {
+        "slug": "methods",
+        "title": "Methods",
+        "file": "pages/methods/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 1419,
+  "revision": "1784692555600664842"
+}

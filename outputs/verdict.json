@@ -1,0 +1,99 @@
+{
+  "claims": {
+    "C1_model": {
+      "edge_types_present": {
+        "trait_within_gen": true,
+        "trait_to_selection": true,
+        "exogenous_to_trait": true,
+        "inheritance": true
+      },
+      "VERDICT": "VERIFIED"
+    },
+    "C2_induced_deps": {
+      "cases": [
+        {
+          "graph": "G1",
+          "base_trait_edges": 2,
+          "Gplus_edges": 2,
+          "extra_clique_edges": 0,
+          "Gplus_is_supergraph": true
+        },
+        {
+          "graph": "G2",
+          "base_trait_edges": 2,
+          "Gplus_edges": 3,
+          "extra_clique_edges": 1,
+          "Gplus_is_supergraph": true
+        },
+        {
+          "graph": "G3",
+          "base_trait_edges": 2,
+          "Gplus_edges": 3,
+          "extra_clique_edges": 1,
+          "Gplus_is_supergraph": true
+        }
+      ],
+      "Gplus_always_supergraph": true,
+      "selection_induces_deps_some_graph": true,
+      "VERDICT": "VERIFIED"
+    },
+    "C3_dsep_capture": {
+      "cases": [
+        {
+          "graph": "G1",
+          "triples_tested": 12,
+          "mismatches": 0,
+          "theorem1_holds": true
+        },
+        {
+          "graph": "G2",
+          "triples_tested": 12,
+          "mismatches": 0,
+          "theorem1_holds": true
+        },
+        {
+          "graph": "G3",
+          "triples_tested": 12,
+          "mismatches": 0,
+          "theorem1_holds": true
+        }
+      ],
+      "VERDICT": "VERIFIED"
+    },
+    "C4_pc_sound": {
+      "cases": [
+        {
+          "graph": "G1",
+          "Gplus_edges": 2,
+          "removed_by_PC": 1,
+          "true_edges_wrongly_removed": 0,
+          "PC_sound_on_Gplus": true
+        },
+        {
+          "graph": "G2",
+          "Gplus_edges": 3,
+          "removed_by_PC": 0,
+          "true_edges_wrongly_removed": 0,
+          "PC_sound_on_Gplus": true
+        },
+        {
+          "graph": "G3",
+          "Gplus_edges": 3,
+          "removed_by_PC": 0,
+          "true_edges_wrongly_removed": 0,
+          "PC_sound_on_Gplus": true
+        }
+      ],
+      "VERDICT": "VERIFIED"
+    },
+    "C5_multi_env": {
+      "anS": [
+        "X1",
+        "X2"
+      ],
+      "Gplus_has_selection_clique": true,
+      "consistent_across_environments": true,
+      "VERDICT": "VERIFIED"
+    }
+  }
+}

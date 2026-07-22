@@ -1,0 +1,10 @@
+{
+  "paper": "mOcTXKawFY",
+  "slug": "icml26-repro-mOcTXKawFY-causal-evolutionary-selection",
+  "title": "Causal Modeling of Selection in Evolution",
+  "arxiv": "2606.05689",
+  "gate_date": "2026-07-22",
+  "tests_passed": true,
+  "publication_gate_passed": true,
+  "gate_notes": "Local re-verification from clean state. 5/6 anchored claims VERIFIED = 10 pts. Clean-room d-separation (ancestral moral graph), clique-augmented DAG G+ (Definition 2: clique on an_G(S)), evolutionary selection model G^(T) (Definition 1: traits/heritable-eps/selection-S, 4 edge types), PC skeleton. C1 model well-formed; C2 selection induces deps (G+ supergraph of G, strict for some); C3 Theorem 1 G+ captures all d-separations of G^(T)|S (EXACT: 0 mismatches across all (A,B,C) triples, 3 base graphs); C4 PC sound on G+ (0 wrong removals); C5 multi-environment consistency. C6 (real datasets) deferred. d-sep match is an independent falsifier of Theorem 1. Secret-scan clean. CPU, pure Python."
+}
