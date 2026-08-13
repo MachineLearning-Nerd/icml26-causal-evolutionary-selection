@@ -8,6 +8,12 @@
   ],
   "arxiv": "2606.05689",
   "openreview": "mOcTXKawFY",
+  "authors": [
+    "Haoyue Dai",
+    "Zeyu Tang",
+    "Peter Spirtes",
+    "Kun Zhang"
+  ],
   "title": "Causal Modeling of Selection in Evolution",
-  "last_page": "claim-3-theorem-1"
+  "last_page": "overview"
 }

@@ -1,8 +1,13 @@
-# Claim 4 — PC soundness
+# Claim 4 — Theorem 2
 
+**Paper claim:** PC/GES output has the stated sound interpretation under the
+paper's sampling and faithfulness assumptions.
 
----
-<!-- trackio-cell
-{"type": "markdown", "id": "cell_05b7c080d46f", "created_at": "2026-07-22T03:55:53+00:00", "title": "C4: Theorem 2 PC sound on G⁺ — VERIFIED"}
--->
-Applying PC/GES to G⁺ is sound: the PC skeleton (testing d-separations) **never removes a true G⁺ adjacency** (0 wrong removals across all graphs).
+**Local status:** FINITE_PC_GRAPH_PROXY.
+
+The verifier runs the repository's own oracle PC-style skeleton directly on G+
+for three toy graphs, with conditioning sets of size at most one. It checks
+that no known G+ edge is removed: 0 wrongly removed edges.
+
+No observational samples, PC/GES package, faithfulness test, precision curve,
+or paper-scale synthetic experiment is run.

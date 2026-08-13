@@ -1,0 +1,165 @@
+{
+  "paper": "mOcTXKawFY",
+  "title": "Causal Modeling of Selection in Evolution",
+  "authors": [
+    "Haoyue Dai",
+    "Zeyu Tang",
+    "Peter Spirtes",
+    "Kun Zhang"
+  ],
+  "arxiv": "2606.05689",
+  "collection_anchor": "mOcTXKawFY",
+  "scope": "bounded_clean_room_finite_graph_proxy",
+  "claims": {
+    "C1_model": {
+      "paper_claim": "Definition 1: the evolutionary selection model has four edge types.",
+      "status": "FINITE_MODEL_CONSTRUCTION_PROXY",
+      "finite_proxy_passed": true,
+      "limitation": "One hand-built T=2 graph checks edge presence; it does not validate the general definition, distributional semantics, or assumptions.",
+      "evidence": {
+        "edge_types_present": {
+          "trait_within_generation": true,
+          "trait_to_reproduction": true,
+          "heritable_factor_to_trait": true,
+          "inheritance": true
+        }
+      }
+    },
+    "C2_induced_deps": {
+      "paper_claim": "Lemma 1: evolutionary selection can induce dependencies not present in the static graph.",
+      "status": "FINITE_GRAPH_STRUCTURE_PROXY",
+      "finite_proxy_passed": true,
+      "limitation": "A larger G+ on two toy graphs is structural evidence only; it does not generate evolutionary data or establish the lemma for all DAGs and distributions.",
+      "evidence": {
+        "cases": [
+          {
+            "graph": "G1",
+            "base_trait_edges": 2,
+            "clique_augmented_edges": 2,
+            "extra_edges": 0,
+            "supergraph": true
+          },
+          {
+            "graph": "G2",
+            "base_trait_edges": 2,
+            "clique_augmented_edges": 3,
+            "extra_edges": 1,
+            "supergraph": true
+          },
+          {
+            "graph": "G3",
+            "base_trait_edges": 2,
+            "clique_augmented_edges": 3,
+            "extra_edges": 1,
+            "supergraph": true
+          }
+        ],
+        "Gplus_always_supergraph": true,
+        "strict_case_present": true
+      }
+    },
+    "C3_dsep_capture": {
+      "paper_claim": "Theorem 1: the clique-augmented DAG represents the selected evolutionary d-separations.",
+      "status": "FINITE_DSEP_ENUMERATION_PROXY",
+      "finite_proxy_passed": true,
+      "limitation": "Only singleton A/B/C cases and empty conditioning sets on three hand-built graphs at T=2 are checked; this is not a proof for arbitrary sets, generations, or model assumptions.",
+      "evidence": {
+        "cases": [
+          {
+            "graph": "G1",
+            "generation": 2,
+            "comparisons": 12,
+            "mismatches": 0,
+            "all_selected_comparisons_match": true
+          },
+          {
+            "graph": "G2",
+            "generation": 2,
+            "comparisons": 12,
+            "mismatches": 0,
+            "all_selected_comparisons_match": true
+          },
+          {
+            "graph": "G3",
+            "generation": 2,
+            "comparisons": 12,
+            "mismatches": 0,
+            "all_selected_comparisons_match": true
+          }
+        ],
+        "all_comparisons_match": true
+      }
+    },
+    "C4_pc_sound": {
+      "paper_claim": "Theorem 2: PC/GES interpretations are sound under the paper's sampling and faithfulness assumptions.",
+      "status": "FINITE_PC_GRAPH_PROXY",
+      "finite_proxy_passed": true,
+      "limitation": "This uses the repository's own d-separation oracle on G+, not observational data, the paper's PC/GES implementations, faithfulness checks, or precision experiments.",
+      "evidence": {
+        "cases": [
+          {
+            "graph": "G1",
+            "max_conditioning_set_size": 1,
+            "clique_augmented_edges": 2,
+            "removed_pairs": 1,
+            "true_edges_wrongly_removed": 0,
+            "oracle_skeleton_check_passed": true
+          },
+          {
+            "graph": "G2",
+            "max_conditioning_set_size": 1,
+            "clique_augmented_edges": 3,
+            "removed_pairs": 0,
+            "true_edges_wrongly_removed": 0,
+            "oracle_skeleton_check_passed": true
+          },
+          {
+            "graph": "G3",
+            "max_conditioning_set_size": 1,
+            "clique_augmented_edges": 3,
+            "removed_pairs": 0,
+            "true_edges_wrongly_removed": 0,
+            "oracle_skeleton_check_passed": true
+          }
+        ],
+        "all_oracle_checks_passed": true
+      }
+    },
+    "C5_multi_env": {
+      "paper_claim": "Theorem 4: the multi-domain identification procedure has soundness and completeness guarantees.",
+      "status": "TAUTOLOGICAL_MULTI_ENV_PROXY",
+      "finite_proxy_passed": true,
+      "limitation": "Both environments reuse the same graph object and no data, domain shift, or CDNOD procedure is run; this is an internal consistency check, not multi-environment evidence.",
+      "evidence": {
+        "ancestors_of_selection": [
+          "X1",
+          "X2"
+        ],
+        "same_graph_reused": true,
+        "dsep_relation_environment_a": false,
+        "dsep_relation_environment_b": false,
+        "consistent": true
+      }
+    },
+    "C6_real_data": {
+      "paper_claim": "Section 5.2: results on seven real-world datasets support the method's interpretation.",
+      "status": "NOT_REPRODUCED",
+      "finite_proxy_passed": false,
+      "limitation": "The seven datasets, preprocessing, learned graphs, and reported quantitative comparisons are absent from this checkout.",
+      "evidence": {
+        "datasets_run": 0
+      }
+    }
+  },
+  "finite_proxy_diagnostics_passed": 5,
+  "finite_proxy_diagnostics_total": 5,
+  "paper_claims_verified": 0,
+  "paper_claims_total": 6,
+  "overall_status": "INCONCLUSIVE",
+  "not_run": [
+    "synthetic evolutionary-selection data generation",
+    "PC and GES data experiments",
+    "CDNOD multi-domain experiment",
+    "seven real-world datasets"
+  ]
+}

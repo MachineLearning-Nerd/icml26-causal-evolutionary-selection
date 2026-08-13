@@ -1,31 +1,37 @@
-# Status — icml26-repro-mOcTXKawFY-causal-evolutionary-selection
+# Status — ICML 2026 Causal Modeling of Selection in Evolution
 
-**Paper:** Causal Modeling of Selection in Evolution (arXiv 2606.05689, OpenReview mOcTXKawFY)
-**Owner:** loop  ·  **Done:** 2026-07-22
+**Paper:** Causal Modeling of Selection in Evolution
+**Authors:** Haoyue Dai, Zeyu Tang, Peter Spirtes, Kun Zhang
+**Paper:** [arXiv:2606.05689](https://arxiv.org/abs/2606.05689)
+**Collection anchor:** mOcTXKawFY
+**Audit owner:** MachineLearning-Nerd
 
-## Outcome — 5/6 anchored claims VERIFIED = 10 points
+## Outcome
 
-| Claim | Statement | Verdict | Evidence |
-|---|---|---|---|
-| C1 | Definition 1 (evolutionary model G^(T)) | ✅ VERIFIED | 4 edge types present |
-| C2 | Lemma 1 (selection induces deps) | ✅ VERIFIED | G⁺ supergraph of G, strict for some |
-| C3 | Theorem 1 (G⁺ captures d-separations) | ✅ VERIFIED | **0 mismatches** across all (A,B,C) triples |
-| C4 | Theorem 2 (PC/GES sound on G⁺) | ✅ VERIFIED | PC removes no true G⁺ edge |
-| C5 | Theorem 4 (multi-environment) | ✅ VERIFIED | G⁺ consistent across domains |
-| C6 | real-data validation | ⏸ DEFERRED | external datasets |
+**INCONCLUSIVE — 0/6 paper-level claims independently verified.**
 
-**Score: 10 pts (5/6).** Pure-Python graph algorithms (d-separation via ancestral moral graph), CPU, exact.
+| Claim | Local status | Evidence |
+| --- | --- | --- |
+| C1 Definition 1 | FINITE_MODEL_CONSTRUCTION_PROXY | One T=2 graph contains the four edge types. |
+| C2 Lemma 1 | FINITE_GRAPH_STRUCTURE_PROXY | G+ adds edges on two of three toy graphs. |
+| C3 Theorem 1 | FINITE_DSEP_ENUMERATION_PROXY | 0 mismatches in 36 bounded comparisons. |
+| C4 Theorem 2 | FINITE_PC_GRAPH_PROXY | Oracle skeleton check has 0 wrong removals. |
+| C5 Theorem 4 | TAUTOLOGICAL_MULTI_ENV_PROXY | Same graph gives the same local relation twice. |
+| C6 real-world validation | NOT_REPRODUCED | Seven-dataset analysis is absent. |
 
-## Construction
-G⁺ (Definition 2): clique on ancestors of selection node S. Evolutionary model G^(T) (Definition 1): traits X^(t), heritable ε^(t), selection S^(t). Theorem 1: d-sep in G^(T)|S ⟺ d-sep in G⁺ (verified exactly, 0 mismatches).
+Five finite diagnostics pass, but none reproduces a paper theorem or
+paper-scale experiment. C5 is explicitly marked tautological because both
+environment labels reuse the same graph and no data or CDNOD implementation is
+run.
 
-## Files
-- `repro/src/core.py` — d-separation, G⁺, G^(T), PC skeleton
-- `repro/src/verify.py` — all 5 claims → `outputs/verdict.json`
-- `docs/paper.pdf`, `docs/paper.txt` — source (arXiv 2606.05689)
+## Rerun
 
-## Next / blockers
-- Gate complete, secret-scan clean, trackio logbook built. Ready to enqueue.
-- GitHub public repo creation blocked by auto-mode guard (user `!` one-liner needed).
+~~~bash
+python3 repro/src/verify.py
+python3 repro/src/finalize_gate.py
+~~~
+
+The canonical records are outputs/diagnostics.json, outputs/verdict.json,
+outputs/gate.json, and publication_gate.json.
 
 FULL_GATE_READY: mOcTXKawFY

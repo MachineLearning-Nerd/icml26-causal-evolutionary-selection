@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "title": "Repro - Causal Modeling of Evolutionary Selection (arXiv 2606.05689)",
+  "title": "Repro - Causal Modeling of Selection in Evolution",
   "emoji": "🎯",
   "space_id": null,
-  "paper": null,
+  "paper": "2606.05689",
   "tags": [
     "icml2026-repro",
     "paper-mOcTXKawFY"
   ],
-  "updated_at": "2026-07-22T03:55:55+00:00",
+  "updated_at": "2026-08-13T00:00:00+05:30",
   "root": {
     "slug": "index",
-    "title": "Repro - Causal Modeling of Evolutionary Selection (arXiv 2606.05689)",
+    "title": "Repro - Causal Modeling of Selection in Evolution",
     "file": "pages/index.md",
     "children": [
       {
@@ -21,21 +21,39 @@
         "children": []
       },
       {
-        "slug": "claim-3-theorem-1",
-        "title": "Claim 3 — Theorem 1",
-        "file": "pages/claim-3-theorem-1/page.md",
+        "slug": "claim-1-definition",
+        "title": "Claim 1 - Definition 1",
+        "file": "pages/claim-1-definition/page.md",
         "children": []
       },
       {
         "slug": "claim-2-induced-deps",
-        "title": "Claim 2 — Induced deps",
+        "title": "Claim 2 - Induced dependencies",
         "file": "pages/claim-2-induced-deps/page.md",
         "children": []
       },
       {
+        "slug": "claim-3-theorem-1",
+        "title": "Claim 3 - Theorem 1",
+        "file": "pages/claim-3-theorem-1/page.md",
+        "children": []
+      },
+      {
         "slug": "claim-4-pc-soundness",
-        "title": "Claim 4 — PC soundness",
+        "title": "Claim 4 - Theorem 2",
         "file": "pages/claim-4-pc-soundness/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-5-multi-env",
+        "title": "Claim 5 - Multi-domain",
+        "file": "pages/claim-5-multi-env/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-6-real-data",
+        "title": "Claim 6 - Real data",
+        "file": "pages/claim-6-real-data/page.md",
         "children": []
       },
       {
@@ -52,6 +70,6 @@
       }
     ]
   },
-  "agent_view_tokens": 1419,
-  "revision": "1784692555600664842"
+  "agent_view_tokens": 0,
+  "revision": "icml26-audit-refresh"
 }
