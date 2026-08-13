@@ -5,7 +5,7 @@ Independent, clean-room evidence audit for:
 > Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang, “Causal Modeling of
 > Selection in Evolution,” arXiv:2606.05689, 2026.
 
-Paper links: [arXiv abstract](https://arxiv.org/abs/2606.05689) ·
+Paper links: [arXiv v1 abstract](https://arxiv.org/abs/2606.05689v1) ·
 [HTML paper](https://arxiv.org/html/2606.05689) ·
 [ICML 2026 OpenReview anchor](https://openreview.net/forum?id=mOcTXKawFY)
 
@@ -109,7 +109,7 @@ authors.
   eprint = {2606.05689},
   archivePrefix = {arXiv},
   primaryClass = {cs.LG},
-  url = {https://arxiv.org/abs/2606.05689}
+  url = {https://arxiv.org/abs/2606.05689v1}
 }
 ~~~
 

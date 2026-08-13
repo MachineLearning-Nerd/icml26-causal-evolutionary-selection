@@ -2,7 +2,7 @@
 
 **Paper:** Causal Modeling of Selection in Evolution
 **Authors:** Haoyue Dai, Zeyu Tang, Peter Spirtes, Kun Zhang
-**Paper:** [arXiv:2606.05689](https://arxiv.org/abs/2606.05689)
+**Paper:** [arXiv:2606.05689v1](https://arxiv.org/abs/2606.05689v1)
 **Collection anchor:** mOcTXKawFY
 **Audit owner:** MachineLearning-Nerd
 

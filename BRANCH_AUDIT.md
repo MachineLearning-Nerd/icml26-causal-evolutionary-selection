@@ -32,3 +32,7 @@ icml26-causal-evolutionary-selection, normalizes the branch to main, removes
 the legacy remote branch, and rewrites reachable commit attribution to the
 MachineLearning-Nerd identity. The final remote branch list and commit tips
 must be checked after publication.
+
+## Live verification
+
+The final remote audit confirmed repository name `icml26-causal-evolutionary-selection`, default branch `main`, sole remote branch `main`, canonical paper homepage, README and gate publication, and MachineLearning-Nerd as both author and committer on all reachable commits.
