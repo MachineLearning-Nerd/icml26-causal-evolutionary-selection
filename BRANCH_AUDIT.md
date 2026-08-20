@@ -1,38 +1,31 @@
-# Branch and attribution audit
+# Branch and commit audit
 
-## Target policy
+## Source state
 
-- Canonical branch: main
-- Intended branch count after migration: one
-- Legacy collection anchor: mOcTXKawFY
-- Repository owner: MachineLearning-Nerd
+- Source tip before this standardization:
+  486571731bda5986ad65d2d9bd00d710522b260f.
+- The former repository name was
+  icml26-repro-mOcTXKawFY-causal-evolutionary-selection.
+- The source history had three reachable commits and only the main
+  publication branch in scope.
+- No experiment, paper-version, master, or orx branch is part of the intended
+  published state.
+- Recovery bundle SHA-256:
+  db65d45de07d47b5e44dd4cd60bb5509ace09a69dca1de7cffea56e7c97f0250.
 
-## Branch purpose
+The recovery bundle preserves the complete pre-standardization history.
 
-The repository contains one clean-room audit. No experimental or OpenResearch
-branch is part of the published workflow. The verifier and publication gate
-are the source of truth for the bounded evidence status.
+## Current branch policy
 
-## Commit identity
+- main is the only canonical branch.
+- New evidence should use a descriptive audit/... branch and record the paper
+  version, command, inputs, outputs, controls, and limitations before merging.
 
-Reachable audit commits are expected to use:
+## Attribution policy
 
-~~~text
-Name:  MachineLearning-Nerd
-Email: 37579156+MachineLearning-Nerd@users.noreply.github.com
-~~~
+All reachable published commits use:
 
-No co-author or tool-attribution trailers are part of the audit history.
+MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>
 
-## Migration record
-
-The original collection repository used a master branch and a generated
-reproduction commit. The cleanup renames the repository to
-icml26-causal-evolutionary-selection, normalizes the branch to main, removes
-the legacy remote branch, and rewrites reachable commit attribution to the
-MachineLearning-Nerd identity. The final remote branch list and commit tips
-must be checked after publication.
-
-## Live verification
-
-The final remote audit confirmed repository name `icml26-causal-evolutionary-selection`, default branch `main`, sole remote branch `main`, canonical paper homepage, README and gate publication, and MachineLearning-Nerd as both author and committer on all reachable commits.
+This identity is repository-maintenance attribution. It does not claim
+authorship of the paper or its implementation.

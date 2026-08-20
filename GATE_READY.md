@@ -1,26 +1,22 @@
-# Gate meaning
+# Documentation gate
 
-This repository is ready for review and publication of its **bounded finite
-graph proxy audit**. It is not a claim that the six paper claims or the paper's
-experiments have been reproduced.
+FULL_GATE_READY: mOcTXKawFY
 
-## Required checks
+The repository has a pinned paper record, six-claim ledger, explicit
+claim-to-evidence production paths, citation, author thank-you note,
+repository map, branch audit, structured verdicts, and a fail-closed final
+verifier.
 
-~~~bash
-python3 repro/src/verify.py
-python3 repro/src/finalize_gate.py
-python3 -m json.tool outputs/diagnostics.json >/dev/null
-python3 -m json.tool outputs/verdict.json >/dev/null
-python3 -m json.tool outputs/gate.json >/dev/null
-git diff --check
-~~~
+This gate means that the bounded causal-selection graph audit is documented
+and scoped for publication. It does not mean that the six paper claims, causal
+discovery data pipeline, CDNOD experiment, or seven real-world analyses were
+reproduced.
 
-The gate is expected to report:
-
-- 5/5 finite proxy diagnostics passed.
-- 0/6 paper-level claims independently verified.
-- C6 real-world validation not reproduced.
-- overall status INCONCLUSIVE.
-
-The checked-in source paper copy is a reference artifact. The implementation
-is independent clean-room code and is not author code.
+- Documentation gate: passed.
+- Finite proxy diagnostics passed: 5/5.
+- Scoped evidence points: 10/12.
+- Complete paper claims independently verified: 0/6.
+- Current external score claim: false.
+- Publication as a complete paper reproduction: not allowed.
+- Required attribution: MachineLearning-Nerd.
+- Canonical branch: main.

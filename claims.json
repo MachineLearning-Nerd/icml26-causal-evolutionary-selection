@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "paper": "Causal Modeling of Selection in Evolution",
+  "arxiv": "2606.05689v1",
+  "openreview": "mOcTXKawFY",
+  "overall_status": "INCONCLUSIVE_C1_FINITE_MODEL_CONSTRUCTION_PROXY_C2_FINITE_GRAPH_STRUCTURE_PROXY_C3_FINITE_DSEP_ENUMERATION_PROXY_C4_FINITE_PC_GRAPH_PROXY_C5_TAUTOLOGICAL_MULTI_ENV_PROXY_C6_NOT_REPRODUCED_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
+  "audit": {
+    "finite_proxy_diagnostics_passed": 5,
+    "finite_proxy_diagnostics_total": 5,
+    "negative_diagnostics": 0,
+    "claims_total": 6,
+    "paper_claims_verified": 0,
+    "paper_claims_not_verified": 6,
+    "claims_not_reproduced": 1,
+    "evidence_points": 10,
+    "evidence_points_total": 12,
+    "current_score_claim": false,
+    "publication_allowed": false
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "paper_claim": "Definition 1: the evolutionary selection model has four edge types",
+      "status": "FINITE_MODEL_CONSTRUCTION_PROXY",
+      "raw_diagnostic": "C1_model",
+      "evidence": "One T=2 graph contains trait, reproduction, heritable-factor, and inheritance edges.",
+      "limitation": "One hand-built graph does not validate general definitions, semantics, or assumptions.",
+      "paper_claim_reproduced": false
+    },
+    {
+      "id": "C2",
+      "paper_claim": "Lemma 1: evolutionary selection can induce dependencies absent from the static graph",
+      "status": "FINITE_GRAPH_STRUCTURE_PROXY",
+      "raw_diagnostic": "C2_induced_deps",
+      "evidence": "G+ is a supergraph in three hand-built cases, with strict extra edges in two.",
+      "limitation": "No generated evolutionary data or general lemma proof is provided.",
+      "paper_claim_reproduced": false
+    },
+    {
+      "id": "C3",
+      "paper_claim": "Theorem 1: G+ represents selected evolutionary d-separations",
+      "status": "FINITE_DSEP_ENUMERATION_PROXY",
+      "raw_diagnostic": "C3_dsep_capture",
+      "evidence": "36 singleton/empty-set comparisons across three T=2 graphs have zero mismatches.",
+      "limitation": "Arbitrary sets, generations, conditioning sets, and assumptions are not checked.",
+      "paper_claim_reproduced": false
+    },
+    {
+      "id": "C4",
+      "paper_claim": "Theorem 2: PC/GES interpretations are sound under paper assumptions",
+      "status": "FINITE_PC_GRAPH_PROXY",
+      "raw_diagnostic": "C4_pc_sound",
+      "evidence": "The local oracle skeleton has zero wrongly removed true edges in three cases.",
+      "limitation": "No observational data, PC/GES implementation, faithfulness check, or precision experiment is present.",
+      "paper_claim_reproduced": false
+    },
+    {
+      "id": "C5",
+      "paper_claim": "Theorem 4: multi-domain identification is sound and complete",
+      "status": "TAUTOLOGICAL_MULTI_ENV_PROXY",
+      "raw_diagnostic": "C5_multi_env",
+      "evidence": "The same local relation is returned under two labels using the same graph.",
+      "limitation": "There is no domain shift, data, or CDNOD procedure; this is an internal consistency check.",
+      "paper_claim_reproduced": false
+    },
+    {
+      "id": "C6",
+      "paper_claim": "Section 5.2: seven real-world datasets support the interpretation",
+      "status": "NOT_REPRODUCED",
+      "raw_diagnostic": null,
+      "evidence": "No corresponding dataset run exists in this checkout.",
+      "limitation": "DGRP, Cranial, Panzea, PanTHERIA, AVONET, CSES, and PUMS analyses are absent.",
+      "paper_claim_reproduced": false
+    }
+  ],
+  "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
+}

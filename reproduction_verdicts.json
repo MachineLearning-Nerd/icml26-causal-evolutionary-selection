@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "paper": "2606.05689v1",
+  "submission": "mOcTXKawFY",
+  "overall_status": "INCONCLUSIVE_C1_FINITE_MODEL_CONSTRUCTION_PROXY_C2_FINITE_GRAPH_STRUCTURE_PROXY_C3_FINITE_DSEP_ENUMERATION_PROXY_C4_FINITE_PC_GRAPH_PROXY_C5_TAUTOLOGICAL_MULTI_ENV_PROXY_C6_NOT_REPRODUCED_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
+  "claim_statuses": {
+    "C1": "FINITE_MODEL_CONSTRUCTION_PROXY",
+    "C2": "FINITE_GRAPH_STRUCTURE_PROXY",
+    "C3": "FINITE_DSEP_ENUMERATION_PROXY",
+    "C4": "FINITE_PC_GRAPH_PROXY",
+    "C5": "TAUTOLOGICAL_MULTI_ENV_PROXY",
+    "C6": "NOT_REPRODUCED"
+  },
+  "evidence": {
+    "finite_proxy_diagnostics_passed": 5,
+    "finite_proxy_diagnostics_total": 5,
+    "negative_diagnostics": 0,
+    "evidence_points": 10,
+    "evidence_points_total": 12,
+    "paper_claims_verified": 0,
+    "paper_claims_not_verified": 6
+  },
+  "publication": {
+    "documentation_gate_passed": true,
+    "paper_reproduction_gate_passed": false,
+    "current_score_claim": false,
+    "publication_allowed": false
+  },
+  "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
+}

@@ -1,102 +1,114 @@
 # ICML 2026 — Causal Modeling of Selection in Evolution
 
-Independent, clean-room evidence audit for:
+Paper-level result: **INCONCLUSIVE**.
 
-> Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang, “Causal Modeling of
-> Selection in Evolution,” arXiv:2606.05689, 2026.
+This repository is an independent, bounded clean-room audit of **Causal
+Modeling of Selection in Evolution**. It contains five finite graph
+diagnostics for selected model-construction, graph-structure, d-separation,
+oracle-skeleton, and multi-environment consistency behaviors. It does not
+reproduce the paper's general proofs, causal-discovery data pipeline, CDNOD
+experiment, or seven real-world datasets.
 
-Paper links: [arXiv v1 abstract](https://arxiv.org/abs/2606.05689v1) ·
-[HTML paper](https://arxiv.org/html/2606.05689) ·
-[ICML 2026 OpenReview anchor](https://openreview.net/forum?id=mOcTXKawFY)
+Five of five finite proxies pass, C6 is not reproduced, and zero of six
+complete paper claims are independently verified. The repository is suitable
+for publication as a scoped audit only; it makes no current external score
+claim.
 
-## What the paper is doing
+## Paper
+
+- Title: Causal Modeling of Selection in Evolution
+- Authors: Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang
+- arXiv: [2606.05689](https://arxiv.org/abs/2606.05689), version 1
+- HTML paper: [arxiv.org/html/2606.05689](https://arxiv.org/html/2606.05689)
+- OpenReview: [mOcTXKawFY](https://openreview.net/forum?id=mOcTXKawFY)
+- Canonical repository: [MachineLearning-Nerd/icml26-causal-evolutionary-selection](https://github.com/MachineLearning-Nerd/icml26-causal-evolutionary-selection)
 
 The paper distinguishes one-shot static selection from evolutionary selection,
-where repeated reproduction and inheritance shape the observed generation. It
-defines an evolutionary selection DAG with trait variables, latent heritable
-factors, and reproduction indicators. It then introduces the
-clique-augmented DAG G+ over the current-generation traits, characterizes the
-conditional independences induced by evolutionary selection, and gives
-single-domain and multi-domain identification procedures based on PC/GES and
-CDNOD-style reasoning. The paper evaluates the interpretation on synthetic
-evolutionary data and seven real-world datasets.
+where reproduction and inheritance shape later generations. It defines an
+evolutionary selection DAG, constructs the clique-augmented graph G+, studies
+selected d-separations, and develops causal-discovery and multi-domain
+identification interpretations. The paper also reports synthetic and
+seven-dataset real-world analyses.
 
-## Audit result
+## Claim-to-evidence summary
 
-**Overall status: INCONCLUSIVE.** The repository has five passing finite graph
-proxies and one unrun real-data item. **0/6 paper-level claims are independently
-verified.**
+| ID | Paper target | Evidence produced here | Status |
+| --- | --- | --- | --- |
+| C1 | Definition 1: four edge types | One T=2 hand-built evolutionary graph | FINITE_MODEL_CONSTRUCTION_PROXY |
+| C2 | Lemma 1: selection-induced dependencies | Three hand-built G versus G+ comparisons | FINITE_GRAPH_STRUCTURE_PROXY |
+| C3 | Theorem 1: G+ selected d-separations | 36 bounded oracle comparisons | FINITE_DSEP_ENUMERATION_PROXY |
+| C4 | Theorem 2: PC/GES interpretation | Oracle PC-style skeleton on G+ | FINITE_PC_GRAPH_PROXY |
+| C5 | Theorem 4: multi-domain identification | Same graph reused under two labels | TAUTOLOGICAL_MULTI_ENV_PROXY |
+| C6 | Section 5.2: seven real-world datasets | No corresponding run in this checkout | NOT_REPRODUCED |
 
-The finite checks are useful falsifiers and implementation diagnostics, but
-they are not theorem proofs. The repository does not contain the paper's
-synthetic data generator, PC/GES data pipeline, CDNOD experiment, or seven
-real-world dataset analyses.
-
-Run the bounded audit with:
-
-~~~bash
-python3 repro/src/verify.py
-python3 repro/src/finalize_gate.py
-~~~
-
-The machine-readable reports are:
-
-- outputs/diagnostics.json — raw finite-proxy evidence.
-- outputs/verdict.json — claim ledger and conservative verdict.
-- outputs/gate.json — publication gate for this bounded scope.
-- publication_gate.json — same gate at repository root.
-
-## Claim-to-evidence ledger
-
-| Claim | Paper statement | Local evidence path | Status | What is still missing |
-| --- | --- | --- | --- | --- |
-| C1 | Definition 1 has four edge types in the evolutionary model. | verify.py constructs one T=2 graph and checks trait, reproduction, heritable-factor, and inheritance edges. | FINITE_MODEL_CONSTRUCTION_PROXY | General definition and distributional semantics. |
-| C2 | Lemma 1: evolution can add dependencies absent from static selection. | verify.py compares G with G+ on three hand-built DAGs and observes extra clique edges in two. | FINITE_GRAPH_STRUCTURE_PROXY | General lemma and generated selected data. |
-| C3 | Theorem 1: G+ captures selected evolutionary d-separations. | verify.py compares the local d-separation oracle on G^(2) and G+ for 36 singleton/empty-set cases. | FINITE_DSEP_ENUMERATION_PROXY | Arbitrary sets, generations, assumptions, and proof. |
-| C4 | Theorem 2: PC/GES interpretations are sound under the paper assumptions. | verify.py runs the local oracle PC-style skeleton on G+ and checks for wrongly removed true edges. | FINITE_PC_GRAPH_PROXY | Observational samples, PC/GES implementations, faithfulness, and precision curves. |
-| C5 | Theorem 4: multi-domain identification is sound and complete. | verify.py repeats the same graph under two labels and compares one d-separation relation. | TAUTOLOGICAL_MULTI_ENV_PROXY | Distinct domains, domain shifts, data, and CDNOD. |
-| C6 | Section 5.2 validates the method on seven real-world datasets. | No corresponding run exists in this checkout. | NOT_REPRODUCED | DGRP, Cranial, Panzea, PanTHERIA, AVONET, CSES, and PUMS analyses. |
+These statuses describe local evidence, not successful reproduction of the
+paper claims. The machine-readable contract is in [claims.json](claims.json),
+and detailed production paths and limitations are in
+[CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md).
 
 ## How each claim is produced
 
-The audit path is intentionally explicit:
+The existing raw measurements are preserved in
+[outputs/diagnostics.json](outputs/diagnostics.json). The clean-room graph
+utilities are [repro/src/core.py](repro/src/core.py), and the existing
+scientific diagnostic script is [repro/src/verify.py](repro/src/verify.py).
+This documentation workflow consumes the recorded diagnostics; it does not run
+the scientific implementation.
 
-1. repro/src/core.py represents DAGs as node-to-children maps, computes
-   ancestors and d-separation with an ancestral-moral-graph procedure, builds
-   G+, unfolds a finite G^(T), and runs a small oracle PC-style skeleton.
-2. repro/src/verify.py runs the five bounded checks, records their evidence
-   and limitations, and records C6 as not reproduced.
-3. repro/src/finalize_gate.py maps the raw checks to the six paper claims,
-   forces the overall status to INCONCLUSIVE, and writes the publication
-   gate.
-4. The Trackio logbook in .trackio/logbook/pages/ mirrors the same claim
-   ledger for human review.
+The metadata-only publication path is:
 
-No paper-level status is inferred from a green local check. A finite proxy
-passes only when its narrowly defined diagnostic passes.
+~~~bash
+python3 repro/src/finalize_gate.py
+python3 verify_final.py
+~~~
+
+The finalizer converts the existing raw diagnostics into
+[outputs/verdict.json](outputs/verdict.json), [outputs/gate.json](outputs/gate.json),
+and [publication_gate.json](publication_gate.json). The final verifier checks
+the claim statuses, evidence counts, required documentation, branch policy,
+attribution, and fail-closed publication flags.
+
+## Evidence boundary
+
+- Finite proxy diagnostics passed: **5/5**
+- Scoped evidence points: **10/12**
+- Complete paper claims independently verified: **0/6**
+- C6 real-world evidence: **not reproduced**
+- Current score claim: **false**
+- Publication as a full reproduction: **not allowed**
+
+The following remain outside the verified boundary:
+
+- the general definitions, theorem assumptions, and proofs;
+- generated evolutionary-selection populations and observational samples;
+- faithful PC/GES implementations, faithfulness checks, and precision curves;
+- distinct domains and a CDNOD-style multi-domain experiment;
+- DGRP, Cranial, Panzea, PanTHERIA, AVONET, CSES, and PUMS analyses.
 
 ## Repository map
 
-~~~text
-repro/src/core.py          Small graph and d-separation utilities
-repro/src/verify.py        Raw bounded finite-proxy checks
-repro/src/finalize_gate.py Conservative status and publication gate
-outputs/                   JSON evidence and verdicts
-docs/paper.pdf             Pinned source-paper copy supplied with the checkout
-.trackio/logbook/          Human-readable audit log
-STATUS.md                  Short status summary
-GATE_READY.md              Gate meaning and rerun contract
-BRANCH_AUDIT.md            Branch and commit-attribution record
-~~~
+- [repro/src/core.py](repro/src/core.py) — DAG, G+, unfolding, d-separation, and oracle skeleton utilities.
+- [repro/src/verify.py](repro/src/verify.py) — source of the five existing finite diagnostics.
+- [repro/src/finalize_gate.py](repro/src/finalize_gate.py) — metadata-only conservative gate generator.
+- [outputs/diagnostics.json](outputs/diagnostics.json) — existing raw measurements.
+- [docs/paper.pdf](docs/paper.pdf) — pinned source-paper copy supplied with the checkout.
+- [CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md) — claim-to-evidence production ledger.
+- [SOURCE_AUDIT.md](SOURCE_AUDIT.md) — contents and missing-scope audit.
+- [verify_final.py](verify_final.py) — fail-closed final-state verifier.
 
-## Branch and attribution policy
+## Branches and attribution
 
-The cleaned repository uses one main branch. The original collection anchor
-was mOcTXKawFY; it identifies the paper record, not a claim of paper-author
-code ownership. Reachable audit commits are attributed to
-MachineLearning-Nerd using the GitHub no-reply identity. The repository is an
-independent reproduction/evidence audit and is not affiliated with the paper's
-authors.
+main is the only canonical publication branch. The former repository name was
+icml26-repro-mOcTXKawFY-causal-evolutionary-selection; the live repository is
+icml26-causal-evolutionary-selection. See [BRANCH_AUDIT.md](BRANCH_AUDIT.md)
+for the recovery bundle, source tip, branch policy, and identity normalization.
+
+Reachable maintenance commits use:
+
+MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>
+
+This is repository-maintenance attribution and does not claim authorship of
+the paper or its implementation.
 
 ## Citation
 
@@ -109,22 +121,19 @@ authors.
   eprint = {2606.05689},
   archivePrefix = {arXiv},
   primaryClass = {cs.LG},
-  url = {https://arxiv.org/abs/2606.05689v1}
+  url = {https://arxiv.org/abs/2606.05689}
 }
 ~~~
 
+The repository metadata citation is also available in
+[CITATION.cff](CITATION.cff).
+
 ## Thank you
 
-Thank you to Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang for making a
-subtle distinction between static and evolutionary selection and for
-formalizing how inheritance changes causal-discovery interpretation. This
-clean-room audit is intended as a transparent, respectful companion to the
-paper: it records what the local code can support, what it cannot support, and
-what would be needed for a faithful end-to-end reproduction.
+Thank you to Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang for
+formalizing the distinction between static and evolutionary selection and its
+causal-discovery consequences. This independent audit records finite graph
+evidence and its limitations so readers can distinguish a bounded diagnostic
+from the paper's general guarantees and data analyses.
 
-## Scope and limitations
-
-This repository is CPU-friendly and dependency-light. It is suitable for
-reviewing the finite graph logic and the audit bookkeeping. It is not a
-replacement for the paper's proofs, causal-discovery software, synthetic
-population simulation, or real-world data study.
+See [AUTHOR_THANK_YOU.md](AUTHOR_THANK_YOU.md) for the standalone note.

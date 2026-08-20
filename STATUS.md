@@ -1,37 +1,40 @@
-# Status — ICML 2026 Causal Modeling of Selection in Evolution
+# Causal selection in evolution — audit status
 
-**Paper:** Causal Modeling of Selection in Evolution
-**Authors:** Haoyue Dai, Zeyu Tang, Peter Spirtes, Kun Zhang
-**Paper:** [arXiv:2606.05689v1](https://arxiv.org/abs/2606.05689v1)
-**Collection anchor:** mOcTXKawFY
-**Audit owner:** MachineLearning-Nerd
+Paper: Causal Modeling of Selection in Evolution
 
-## Outcome
+Authors: Haoyue Dai, Zeyu Tang, Peter Spirtes, and Kun Zhang
 
-**INCONCLUSIVE — 0/6 paper-level claims independently verified.**
+Paper: arXiv 2606.05689v1
 
-| Claim | Local status | Evidence |
+OpenReview: mOcTXKawFY
+
+## Verdict
+
+**INCONCLUSIVE — 0/6 complete paper claims independently verified.**
+
+The existing checkout contains five finite graph diagnostics, all passing
+within their narrow hand-built scope. C6 has no local run. C5 is explicitly
+tautological because both environment labels reuse the same graph.
+
+| Claim | Status | What the existing evidence shows |
 | --- | --- | --- |
-| C1 Definition 1 | FINITE_MODEL_CONSTRUCTION_PROXY | One T=2 graph contains the four edge types. |
-| C2 Lemma 1 | FINITE_GRAPH_STRUCTURE_PROXY | G+ adds edges on two of three toy graphs. |
-| C3 Theorem 1 | FINITE_DSEP_ENUMERATION_PROXY | 0 mismatches in 36 bounded comparisons. |
-| C4 Theorem 2 | FINITE_PC_GRAPH_PROXY | Oracle skeleton check has 0 wrong removals. |
-| C5 Theorem 4 | TAUTOLOGICAL_MULTI_ENV_PROXY | Same graph gives the same local relation twice. |
-| C6 real-world validation | NOT_REPRODUCED | Seven-dataset analysis is absent. |
+| C1 — Definition 1 | FINITE_MODEL_CONSTRUCTION_PROXY | One T=2 graph contains the four edge types. |
+| C2 — Lemma 1 | FINITE_GRAPH_STRUCTURE_PROXY | G+ adds edges in the hand-built cases. |
+| C3 — Theorem 1 | FINITE_DSEP_ENUMERATION_PROXY | 0 mismatches in 36 bounded comparisons. |
+| C4 — Theorem 2 | FINITE_PC_GRAPH_PROXY | Oracle skeleton has 0 wrongly removed true edges. |
+| C5 — Theorem 4 | TAUTOLOGICAL_MULTI_ENV_PROXY | Same graph gives the same local relation twice. |
+| C6 — real-world validation | NOT_REPRODUCED | Seven-dataset analysis is absent. |
 
-Five finite diagnostics pass, but none reproduces a paper theorem or
-paper-scale experiment. C5 is explicitly marked tautological because both
-environment labels reuse the same graph and no data or CDNOD implementation is
-run.
+## Gate
 
-## Rerun
+- Finite proxy diagnostics passed: 5/5
+- Scoped evidence points: 10/12
+- Complete paper claims independently verified: 0/6
+- Current score claim: false
+- Full-paper publication: not allowed
 
-~~~bash
-python3 repro/src/verify.py
-python3 repro/src/finalize_gate.py
-~~~
-
-The canonical records are outputs/diagnostics.json, outputs/verdict.json,
-outputs/gate.json, and publication_gate.json.
-
-FULL_GATE_READY: mOcTXKawFY
+The authoritative machine-readable files are
+[outputs/verdict.json](outputs/verdict.json),
+[outputs/gate.json](outputs/gate.json), and
+[publication_gate.json](publication_gate.json). The detailed production
+ledger is [CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md).

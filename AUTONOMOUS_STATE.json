@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "INCONCLUSIVE_C1_FINITE_MODEL_CONSTRUCTION_PROXY_C2_FINITE_GRAPH_STRUCTURE_PROXY_C3_FINITE_DSEP_ENUMERATION_PROXY_C4_FINITE_PC_GRAPH_PROXY_C5_TAUTOLOGICAL_MULTI_ENV_PROXY_C6_NOT_REPRODUCED_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
+  "repository": {
+    "owner": "MachineLearning-Nerd",
+    "name": "icml26-causal-evolutionary-selection",
+    "canonical_branch": "main",
+    "canonical_email": "MachineLearning-Nerd@users.noreply.github.com",
+    "recovery_bundle_sha256": "db65d45de07d47b5e44dd4cd60bb5509ace09a69dca1de7cffea56e7c97f0250"
+  },
+  "source": {
+    "source_tip_before_standardization": "486571731bda5986ad65d2d9bd00d710522b260f",
+    "paper": "2606.05689",
+    "paper_version": "v1",
+    "openreview_submission": "mOcTXKawFY"
+  },
+  "evidence": {
+    "finite_proxy_diagnostics_passed": 5,
+    "finite_proxy_diagnostics_total": 5,
+    "negative_diagnostics": 0,
+    "evidence_points": 10,
+    "evidence_points_total": 12,
+    "paper_claims_verified": 0,
+    "current_score_claim": false,
+    "publication_allowed": false
+  },
+  "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
+}
